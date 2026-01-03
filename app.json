@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Prawira Tobacco",
+    "slug": "prawira-tobacco",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.prawiratobacco.mobile"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.prawiratobacco.mobile",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "API_BASE_URL": "https://prawiratobacco.shop",
+      "midtransClientKey": "Mid-client-DxTef6Y9VTBxb3vR",
+      "midtransIsProduction": true,
+      "EXPO_PUBLIC_SUPABASE_URL": "https://mitkblmftejogdxmewet.supabase.co",
+      "EXPO_PUBLIC_SUPABASE_ANON": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pdGtibG1mdGVqb2dkeG1ld2V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNzIzMDYsImV4cCI6MjA2Mjc0ODMwNn0.7zYkzKWXMios1IJ_rz8UA5Jm63xz59A-qi2EqsqB9-E",
+      "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pdGtibG1mdGVqb2dkeG1ld2V0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzE3MjMwNiwiZXhwIjoyMDYyNzQ4MzA2fQ.1n2Dtj5qWqhh2-X7dqGz-X8lkNh7PBqg_-oXuKzn9I0",
+      "RAJAONGKIR_API_KEY":"0632ddb357253ae9af89a7b7c908bc44"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ],
+      "expo-secure-store",
+      "expo-web-browser"
+    ]
+  }
+}

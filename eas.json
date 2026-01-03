@@ -1,0 +1,37 @@
+{
+  "cli": {
+    "version": ">= 5.9.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "prebuildCommand": "npm install --force",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://prawiratobacco.shop",
+        "EXPO_PUBLIC_MIDTRANS_CLIENT_KEY": "Mid-client-DxTef6Y9VTBxb3vR",
+        "EXPO_PUBLIC_MIDTRANS_IS_PRODUCTION": "true"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "prebuildCommand": "npm install --force",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://prawiratobacco.shop",
+        "EXPO_PUBLIC_MIDTRANS_CLIENT_KEY": "Mid-client-DxTef6Y9VTBxb3vR",
+        "EXPO_PUBLIC_MIDTRANS_IS_PRODUCTION": "true"
+      }
+    },
+    "production": {
+      "prebuildCommand": "npm install --force",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://prawiratobacco.shop",
+        "EXPO_PUBLIC_MIDTRANS_CLIENT_KEY": "Mid-client-DxTef6Y9VTBxb3vR",
+        "EXPO_PUBLIC_MIDTRANS_IS_PRODUCTION": "true"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
