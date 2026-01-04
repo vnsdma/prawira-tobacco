@@ -38,8 +38,11 @@
       "midtransIsProduction": true,
       "EXPO_PUBLIC_SUPABASE_URL": "https://mitkblmftejogdxmewet.supabase.co",
       "EXPO_PUBLIC_SUPABASE_ANON": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pdGtibG1mdGVqb2dkeG1ld2V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNzIzMDYsImV4cCI6MjA2Mjc0ODMwNn0.7zYkzKWXMios1IJ_rz8UA5Jm63xz59A-qi2EqsqB9-E",
-      "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pdGtibG1mdGVqb2dkeG1ld2V0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzE3MjMwNiwiZXhwIjoyMDYyNzQ4MzA2fQ.1n2Dtj5qWqhh2-X7dqGz-X8lkNh7PBqg_-oXuKzn9I0",
-      "RAJAONGKIR_API_KEY":"0632ddb357253ae9af89a7b7c908bc44"
+      "RAJAONGKIR_API_KEY": "0632ddb357253ae9af89a7b7c908bc44",
+      "router": {},
+      "eas": {
+        "projectId": "1df65ab7-53e1-49c0-82e2-b40307878845"
+      }
     },
     "plugins": [
       "expo-router",
