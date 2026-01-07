@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView, Image } from "react-native"
-import Icon from "react-native-vector-icons/MaterialIcons"
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { MaterialIcons } from '@react-native-vector-icons/material-icons'
 import { useCart } from "../contexts/CartContext"
 import { formatPrice } from "../utils/formatters"
 import CheckoutModal from "../components/CheckoutModal"
@@ -29,17 +30,17 @@ export default function CartScreen({ navigation }: any) {
             style={styles.quantityButton}
             onPress={() => updateQuantity(item.id, Math.max(0, item.quantity - 1))}
           >
-            <Icon name="remove" size={16} color="#374151" />
+            <MaterialIcons name="remove" size={16} color="#374151" />
           </TouchableOpacity>
 
           <Text style={styles.quantity}>{item.quantity}</Text>
 
           <TouchableOpacity style={styles.quantityButton} onPress={() => updateQuantity(item.id, item.quantity + 1)}>
-            <Icon name="add" size={16} color="#374151" />
+            <MaterialIcons name="add" size={16} color="#374151" />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.removeButton} onPress={() => removeItem(item.id)}>
-            <Icon name="delete" size={16} color="#ef4444" />
+            <MaterialIcons name="delete" size={16} color="#ef4444" />
           </TouchableOpacity>
         </View>
       </View>
@@ -51,7 +52,7 @@ export default function CartScreen({ navigation }: any) {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="arrow-back" size={24} color="#1f2937" />
+          <MaterialIcons name="arrow-back" size={24} color="#1f2937" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Keranjang Belanja</Text>
         <View style={styles.badge}>
@@ -61,7 +62,7 @@ export default function CartScreen({ navigation }: any) {
 
       {items.length === 0 ? (
         <View style={styles.emptyContainer}>
-          <Icon name="shopping-cart" size={64} color="#d1d5db" />
+          <MaterialIcons name="shopping-cart" size={64} color="#d1d5db" />
           <Text style={styles.emptyText}>Keranjang masih kosong</Text>
         </View>
       ) : (

@@ -8,17 +8,18 @@ import {
   StyleSheet, 
   FlatList, 
   TextInput, 
-  SafeAreaView, 
   RefreshControl, 
   Alert, 
   Image, 
   Dimensions, 
   NativeSyntheticEvent, 
-  NativeScrollEvent 
+  NativeScrollEvent,
+  TouchableOpacity
 } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
 import Toast from "react-native-toast-message"
-
+import * as Clipboard from 'expo-clipboard'
 import { useCart } from "../contexts/CartContext"
 import ProductCard from "../components/ProductCard"
 import CategoryFilter from "../components/CategoryFilter"
@@ -33,6 +34,7 @@ interface Product {
   category: string
   in_stock: number
   description?: string
+  weight: number
 }
 
 interface Promo {
@@ -113,6 +115,16 @@ const HomeScreen: React.FC = () => {
         // Tidak perlu alert fatal jika promo gagal, cukup log saja
     }
   }
+  const handlePromoClick = async (promoCode: string) => {
+    if (!promoCode) return;
+    
+    await Clipboard.setStringAsync(promoCode);
+    Toast.show({
+      type: 'success',
+      text1: 'Kode Promo Disalin!',
+      text2: `Kode ${promoCode} berhasil disalin ke clipboard`,
+    });
+  };
 
   const fetchProducts = async () => {
     try {
@@ -201,7 +213,12 @@ const HomeScreen: React.FC = () => {
                 keyExtractor={(item) => item.id.toString()}
                 onMomentumScrollEnd={onMomentumScrollEnd}
                 renderItem={({ item }) => (
-                    <View style={styles.bannerItem}>
+                    // PERUBAHAN DISINI: Gunakan TouchableOpacity agar bisa diklik
+                    <TouchableOpacity 
+                        style={styles.bannerItem}
+                        activeOpacity={0.9} // Efek visual saat ditekan
+                        onPress={() => handlePromoClick(item.code || item.name)} // Asumsi field kode promo adalah 'code', atau gunakan 'name'
+                    >
                         <Image 
                             source={{ uri: item.image_url }} 
                             style={styles.bannerImage}
@@ -210,8 +227,12 @@ const HomeScreen: React.FC = () => {
                         <View style={styles.bannerOverlay}>
                             <Text style={styles.bannerTitle}>{item.name}</Text>
                             <Text style={styles.bannerDesc} numberOfLines={1}>{item.description}</Text>
+                            {/* Opsional: Tambahkan indikator visual bahwa ini bisa diklik */}
+                            <Text style={{ color: 'white', fontSize: 10, marginTop: 4 }}>
+                                Ketuk untuk salin kode
+                            </Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 )}
             />
             {/* Dots Indicator */}
@@ -227,8 +248,8 @@ const HomeScreen: React.FC = () => {
                 ))}
             </View>
         </View>
-    )
-  }
+    );
+}
 
   const renderHeader = () => (
     <View style={styles.header}>

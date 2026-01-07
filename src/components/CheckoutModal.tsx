@@ -15,7 +15,7 @@ import {
 } from "react-native"
 import { Picker } from "@react-native-picker/picker"
 import { WebView } from 'react-native-webview';
-import Icon from "react-native-vector-icons/MaterialIcons"
+import Icon from "@expo/vector-icons/MaterialIcons"
 import { useCart } from "../contexts/CartContext"
 import { useAuth } from "../contexts/AuthContext"
 import { formatPrice } from "../utils/formatters"

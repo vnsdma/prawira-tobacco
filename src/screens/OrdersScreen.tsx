@@ -8,9 +8,9 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   ActivityIndicator,
 } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 import Icon from "@expo/vector-icons/MaterialIcons"
 import Toast from "react-native-toast-message"
 import type { Order } from "../types"
@@ -84,13 +84,13 @@ export default function OrdersScreen() {
         </View>
       </View>
 
-      <Text style={styles.orderDate}>{formatDate(item.created_at)}</Text>
+      <Text style={styles.orderDate}>{formatDate(item.createdAt)}</Text>
 
       <View style={styles.orderItems}>
-        {item.order_items.map((orderItem) => (
-          <View key={orderItem.id} style={styles.orderItem}>
+        {item.items.map((orderItem) => (
+          <View key={orderItem.productId} style={styles.orderItem}>
             <Text style={styles.itemName}>
-              {orderItem.products.name} {orderItem.quantity}
+              {orderItem.name} {orderItem.quantity}
             </Text>
           </View>
         ))}
@@ -100,7 +100,7 @@ export default function OrdersScreen() {
 
       <View style={styles.orderTotal}>
         <Text style={styles.totalLabel}>Total</Text>
-        <Text style={styles.totalValue}>{formatPrice(item.total_amount)}</Text>
+        <Text style={styles.totalValue}>{formatPrice(item.totalAmount)}</Text>
       </View>
     </View>
   )
